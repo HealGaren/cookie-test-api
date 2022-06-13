@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 /* GET home page. */
 router.get('/api/environments', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://" + req.query.domain);
-  // res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Credentials", "true");
 
   const domain = req.query.domain;
 

@@ -8,15 +8,15 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/api/environments', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://" + req.query.domain);
+  res.header("Access-Control-Allow-Origin", "https://" + req.query.allowOriginDomain);
   res.header("Access-Control-Allow-Credentials", "true");
 
-  const domain = req.query.domain;
+  const cookieDomain = req.query.cookieDomain;
 
   res.cookie('test-cookie', 'monster', {
     secure: true,
     httpOnly: true,
-    domain
+    domain: cookieDomain
   });
   res.json({
     message: 'ok'
